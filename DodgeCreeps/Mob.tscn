@@ -58,8 +58,8 @@ _sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_group_": true
 }
-MIN_SPEED = null
-MAX_SPEED = null
+MIN_SPEED = 150
+MAX_SPEED = 250
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
