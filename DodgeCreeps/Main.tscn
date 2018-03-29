@@ -55,7 +55,7 @@ curve = SubResource( 1 )
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath" index="0"]
 
 position = Vector2( -1.00009, -0.999992 )
-rotation = 0.00417536
+rotation = 0.00417535
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
