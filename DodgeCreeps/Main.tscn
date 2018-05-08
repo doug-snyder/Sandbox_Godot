@@ -38,7 +38,7 @@ color = Color( 0.282353, 0.584314, 0.74902, 1 )
 [node name="Player" parent="." index="1" instance=ExtResource( 3 )]
 
 visible = false
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Pause", "Transform" ]
 
 [node name="MobTimer" type="Timer" parent="." index="2"]
 
