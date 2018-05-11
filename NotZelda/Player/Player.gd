@@ -1,12 +1,26 @@
-extends KinematicBody2D
+extends "res://Engine/Entity.gd"
 
 const SPEED = 70
 
-var moveDir = Vector2(0, 0)
 
 func _physics_process(delta):
 	controls_loop()
 	movement_loop()
+	spriteDir_loop()
+	
+	if is_on_wall():
+		if spriteDir == "left" and test_move(transform, Directions.left):
+			anim_switch("push_")
+		if spriteDir == "right" and test_move(transform, Directions.right):
+			anim_switch("push_")
+		if spriteDir == "up" and test_move(transform, Directions.up):
+			anim_switch("push_")
+		if spriteDir == "down" and test_move(transform, Directions.down):
+			anim_switch("push_")
+	elif moveDir != Directions.center:
+		anim_switch("walk_")
+	else:
+		anim_switch("idle_")
 
 func controls_loop():
 	var LEFT = Input.is_action_pressed("ui_left")
@@ -17,6 +31,3 @@ func controls_loop():
 	moveDir.x = -int(LEFT) + int(RIGHT)
 	moveDir.y = -int(UP) + int(DOWN)
 	
-func movement_loop():
-	var motion = moveDir.normalized() * SPEED
-	move_and_slide(motion, Vector2(0, 0))
