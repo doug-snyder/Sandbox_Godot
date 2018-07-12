@@ -7,10 +7,7 @@ path="res://.import/stalfos.png-22dc14f487f02baf2b393ad294c54708.stex"
 [deps]
 
 source_file="res://Enemies/stalfos.png"
-source_md5="a1fd9418bac6a87bc4e760025ee1b9b9"
-
 dest_files=[ "res://.import/stalfos.png-22dc14f487f02baf2b393ad294c54708.stex" ]
-dest_md5="6b0c32d7fe8b79f3c07f218771ca6b5e"
 
 [params]
 
