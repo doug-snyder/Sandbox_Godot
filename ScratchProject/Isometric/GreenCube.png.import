@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/green_ground.png-46d28fbdb810e74c425fd8c536ee1502.stex"
+path="res://.import/GreenCube.png-7012034977fe39447a98dedb69cadf06.stex"
 
 [deps]
 
-source_file="res://Isometric/green_ground.png"
-dest_files=[ "res://.import/green_ground.png-46d28fbdb810e74c425fd8c536ee1502.stex" ]
+source_file="res://Isometric/GreenCube.png"
+dest_files=[ "res://.import/GreenCube.png-7012034977fe39447a98dedb69cadf06.stex" ]
 
 [params]
 

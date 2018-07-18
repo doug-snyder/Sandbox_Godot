@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/green_wall.png-c6c08f6b21dfc31d5db4da535592f82d.stex"
+path="res://.import/BrownFloor.png-2fd7c1bedc42bcc8a6e2c37bfcc9969b.stex"
 
 [deps]
 
-source_file="res://Isometric/green_wall.png"
-dest_files=[ "res://.import/green_wall.png-c6c08f6b21dfc31d5db4da535592f82d.stex" ]
+source_file="res://Isometric/BrownFloor.png"
+dest_files=[ "res://.import/BrownFloor.png-2fd7c1bedc42bcc8a6e2c37bfcc9969b.stex" ]
 
 [params]
 
