@@ -43,8 +43,19 @@ func damage_loop():
 	if hit_stun > 0:
 		hit_stun -= 1
 		
-	for body in $Hitbox.get_overlapping_bodies():
+	for area in $Hitbox.get_overlapping_areas():
+		var body = area.get_parent()
 		if hit_stun == 0 and body.get("DAMAGE") != null and body.get("TYPE") != TYPE:
 			health -= body.get("DAMAGE")
 			hit_stun = 10
-			knock_dir = transform.origin - body.transform.origin
+			knock_dir = global_transform.origin - body.global_transform.origin
+
+
+func use_item(item):
+	var new_item = item.instance()
+	new_item.add_to_group(str(new_item.get_name(), self))
+	add_child(new_item)
+	
+	# Check if more than one item is "out". If so, free new_item because it's redundant.
+	if get_tree().get_nodes_in_group(str(new_item.get_name(), self)).size() > new_item.max_amount:
+		new_item.queue_free()
