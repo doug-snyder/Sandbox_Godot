@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Isometric/brown_wall.png" type="Texture" id=1]
 [ext_resource path="res://Isometric/GreenCube.png" type="Texture" id=2]
-[ext_resource path="res://Isometric/BrownFloor.png" type="Texture" id=3]
+[ext_resource path="res://Isometric/GrayBox_16.png" type="Texture" id=3]
+[ext_resource path="res://Isometric/BrownFloor.png" type="Texture" id=4]
+[ext_resource path="res://Isometric/GrayFlat_16.png" type="Texture" id=5]
 
 [node name="Tileset" type="Node" index="0"]
 
@@ -55,11 +57,41 @@ bounce = 0.0
 build_mode = 0
 polygon = PoolVector2Array( 32, 16, 0, 3.8147e-006, -32, 16, 0, 32 )
 
-[node name="BrownGround" type="Sprite" parent="." index="2"]
+[node name="GrayBox_16" type="Sprite" parent="." index="2"]
+
+position = Vector2( 310, 40 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GrayBox_16" index="0"]
+
+scale = Vector2( 0.25, 0.25 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GrayBox_16/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 32, 16, 0, 3.8147e-006, -32, 16, 0, 32 )
+
+[node name="BrownGround" type="Sprite" parent="." index="3"]
 
 position = Vector2( 220, 40 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="BrownGround2" type="Sprite" parent="." index="4"]
+
+position = Vector2( 400, 40 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 
