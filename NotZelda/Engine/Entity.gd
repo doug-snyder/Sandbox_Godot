@@ -1,14 +1,22 @@
 extends KinematicBody2D
 
-const TYPE = "ENEMY"
+
+const MAX_HEALTH = 2
 const SPEED = 0
+const TYPE = "ENEMY"
 
-var move_dir = Directions.center
-var knock_dir = Directions.center
-var sprite_dir = "down"
-
+var health = MAX_HEALTH
 var hit_stun = 0
-var health = 1
+var knock_dir = Directions.center
+var move_dir = Directions.center
+var sprite_dir = "down"
+var texture_default = null
+var texture_hurt = null
+
+
+func _ready():
+	texture_default = $Sprite.texture
+	texture_hurt = load($Sprite.texture.get_path().replace(".png", "_hurt.png"))
 
 
 func movement_loop():
@@ -16,7 +24,7 @@ func movement_loop():
 	if hit_stun == 0:
 		motion = move_dir.normalized() * SPEED
 	else:
-		motion = knock_dir.normalized() * SPEED * 1.5
+		motion = knock_dir.normalized() * 125
 	
 	move_and_slide(motion, Directions.center)
 	
@@ -35,6 +43,7 @@ func sprite_dir_loop():
 			
 func anim_switch(animation):
 	var new_anim = str(animation, sprite_dir)
+	
 	if $Anim.current_animation != new_anim:
 		$Anim.play(new_anim)
 
@@ -42,7 +51,14 @@ func anim_switch(animation):
 func damage_loop():
 	if hit_stun > 0:
 		hit_stun -= 1
-		
+		$Sprite.texture = texture_hurt
+	else:
+		$Sprite.texture = texture_default
+		if TYPE == "ENEMY" && health <= 0:
+			var death_animation = preload("res://Enemies/Enemy_Death.tscn").instance()
+			get_parent().add_child(death_animation)
+			death_animation.global_transform = global_transform
+			queue_free()
 	for area in $Hitbox.get_overlapping_areas():
 		var body = area.get_parent()
 		if hit_stun == 0 and body.get("DAMAGE") != null and body.get("TYPE") != TYPE:

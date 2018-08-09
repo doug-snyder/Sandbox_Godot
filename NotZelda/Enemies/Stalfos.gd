@@ -1,10 +1,10 @@
 extends "res://Engine/Entity.gd"
 
-const SPEED = 40
 const DAMAGE = 1
+const SPEED = 40
 
-var move_timer_length = 15
 var move_timer = 0
+var move_timer_length = 15
 
 
 func _ready():
